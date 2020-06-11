@@ -65,7 +65,7 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
   .login-button {
       border-radius: 5px;
       font-size:16px;
-      background-color:var(--themeColor);
+      background-color:red;
       line-height: 40px;
       text-align: center;
       color:white;
