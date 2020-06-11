@@ -5,7 +5,12 @@
         </div>
         <div class="main-center"></div>
         <div class="main-right">
+            <div class="search">
+              <SearchInput></SearchInput>
+            </div>
+            <div class="login">
             <Login></Login>
+            </div>
         </div>
     </div>
 </template>
@@ -14,11 +19,13 @@
 //例如：import 《组件名称》 from '《组件路径》';
 import Nav from './nav/Nav.vue'
 import Login from'../components/login/Login'
+import SearchInput from '../components/searchinput/SearchInput'
 export default {
 //import引入的组件需要注入到对象中才能使用
 components: {
     Nav,
-    Login
+    Login,
+    SearchInput
 },
 data: function() {
 //这里存放数据
