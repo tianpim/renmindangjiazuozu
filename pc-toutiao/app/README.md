@@ -1,4 +1,4 @@
-# app
+# toutiao
 
 ## Project setup
 ```

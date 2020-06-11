@@ -1,12 +1,8 @@
 <!--  -->
 <template>
-<div class='tt-index-nav'>
-    <h3>头条</h3>
-    <div class="nav-list">
-        <div class="nav-list-item" v-for="item in navs" :key="item.id">
-            {{item.text}}
-        </div>
-    </div>
+<div class='tt-searchinput'>
+    <input type="text" class="search-input" placeholder="搜索站内资讯、视频或用户" />
+    <div class="search-button">搜索</div>
 </div>
 </template>
 
@@ -20,20 +16,7 @@ components: {},
 data() {
 //这里存放数据
 return {
-    navs:[
-        {id:1,text:"推荐"},
-        {id:2,text:"西瓜视频"},
-        {id:3,text:"财经"},
-        {id:4,text:"热点"},
-        {id:5,text:"直播"},
-        {id:6,text:"图片"},
-        {id:7,text:"科技"},
-        {id:8,text:"娱乐"},
-        {id:9,text:"游戏"},
-        {id:10,text:"体育"},
-        {id:11,text:"懂车帝"},
-        {id:12,text:"热点"},
-    ]
+
 };
 },
 //监听属性 类似于data概念
@@ -62,26 +45,24 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 }
 </script>
 <style lang='less' scoped>
-.tt-index-nav {
-    width: 120px;
-    text-align: center;
-    h3 {
-        color: var(--themeColor);
-        font-weight: 200;
+.tt-searchinput {
+    width: 350px;
+    height: 40px;
+    display: flex;
+    input.search-input {
+        height: 40px;
+        width: 280px;
+        padding: 5px;
+        border-right: 0px;
+        border: 1px solid #ddd;
     }
 
-    .nav-list {
-        .nav-list-item {
-            height: 40px;
-            line-height: 40px;
-            font-size: 16px;
-            transition: all 0.3s;
-            &:hover{
-                background-color: var(--themeColor);
-                color: white;
-                border-radius: 5px;
-            }
-        }
+    .search-button {
+        width: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: white;
+        background-color: #2990d7;
     }
 }
 </style>

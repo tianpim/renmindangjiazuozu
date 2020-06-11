@@ -1,12 +1,8 @@
 <!--  -->
 <template>
-<div class='tt-index-nav'>
-    <h3>头条</h3>
-    <div class="nav-list">
-        <div class="nav-list-item" v-for="item in navs" :key="item.id">
-            {{item.text}}
-        </div>
-    </div>
+<div class='tt-index-login'>
+    <p class="text">登录后可以保存您的浏览喜好、评论、收藏，并与APP同步，更可以发布微头条</p>
+    <div class="login-button">登录</div>
 </div>
 </template>
 
@@ -20,20 +16,7 @@ components: {},
 data() {
 //这里存放数据
 return {
-    navs:[
-        {id:1,text:"推荐"},
-        {id:2,text:"西瓜视频"},
-        {id:3,text:"财经"},
-        {id:4,text:"热点"},
-        {id:5,text:"直播"},
-        {id:6,text:"图片"},
-        {id:7,text:"科技"},
-        {id:8,text:"娱乐"},
-        {id:9,text:"游戏"},
-        {id:10,text:"体育"},
-        {id:11,text:"懂车帝"},
-        {id:12,text:"热点"},
-    ]
+
 };
 },
 //监听属性 类似于data概念
@@ -62,26 +45,32 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 }
 </script>
 <style lang='less' scoped>
-.tt-index-nav {
-    width: 120px;
-    text-align: center;
-    h3 {
-        color: var(--themeColor);
-        font-weight: 200;
+.tt-index-login {
+    width: 350px;
+    height: 250px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+    background-color: white;
+    border: 1px solid #ddd;
+    p.text {
+        text-align: center;
+        font-size:12px;
+        color:#777777;
     }
 
-    .nav-list {
-        .nav-list-item {
-            height: 40px;
-            line-height: 40px;
-            font-size: 16px;
-            transition: all 0.3s;
-            &:hover{
-                background-color: var(--themeColor);
-                color: white;
-                border-radius: 5px;
-            }
-        }
+    .login-button {
+        height: 40px;
+        width: 250px;
+        color: white;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 5px;
+        font-size:16px;
+        background-color: var(--themeColor);
     }
 }
 </style>
