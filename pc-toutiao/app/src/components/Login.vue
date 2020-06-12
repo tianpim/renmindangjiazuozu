@@ -17,7 +17,10 @@
             <div class="login-other">
                 <div class="user-agreement">
                     <span>
-                        登录/注册即表示你同意<a>用户协议</a>和<a>隐私条款</a>
+                        登录/注册即表示你同意
+                        <a href="https://www.toutiao.com/user_agreement/" target="_blank">用户协议</a>
+                        和
+                        <a href="https://www.toutiao.com/privacy_protection/" target="_blank">隐私条款</a>
                     </span>
                 </div>
                 <div class="register-model">
