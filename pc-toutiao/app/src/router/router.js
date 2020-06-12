@@ -11,7 +11,7 @@ let routes = [
         name: "index",
         component: Index
     },
-    \
+    
 ]
 
 export default new VueRouter({
