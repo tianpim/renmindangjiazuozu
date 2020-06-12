@@ -6,13 +6,12 @@
             <div class="register-main">
                 <div class="main-title">账密注册</div>
                 <div class="main-email">
-                    <input type="text" placeholder="账号 / 邮箱">
+                    <input type="text" v-model="username" placeholder="账号 / 邮箱">
                 </div>
                 <div class="main-password">
-                    <input type="text" placeholder="密码">
+                    <input type="text" v-model="password" placeholder="密码">
                 </div>
-                <div class="main-confirm">
-                </div>
+                <div class="main-confirm" @click="submitRegister"></div>
             </div>
             <div class="register-other">
                 <div class="user-agreement">
@@ -43,7 +42,8 @@ components() {
 data() {
 //这里存放数据
 return {
-    
+    username: "",
+    password: "",
 };
 },
 //监听属性 类似于data概念
@@ -55,8 +55,10 @@ watch() {
 
 },
 //方法集合
-methods() {
-
+methods: {
+    submitRegister: function() {
+        console.log(this.$root.$store)
+    }
 },
 //生命周期 - 创建完成（可以访问当前this实例）
 created() {

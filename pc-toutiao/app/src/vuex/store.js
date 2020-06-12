@@ -15,7 +15,6 @@ const mutations = {
 // 事件触发后的逻辑操作
 // 参数为事件函数
 const actions = {
-
 };
 
 // 返回改变后的数值

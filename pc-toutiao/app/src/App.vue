@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue"
 import Index from "./components/Index.vue"
 import Login from "./components/Login.vue"
 import Register from "./components/Register.vue"
@@ -14,7 +13,6 @@ export default {
   name: 'App',
   components: {
     Index,
-    HelloWorld,
     Login,
     Register
   }

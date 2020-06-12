@@ -56,40 +56,41 @@ export default {
 };
 </script>
 <style lang='less' scoped>
-    * {
-        margin: 0;
-        padding: 0;
-    }
-    .more {
-        width: 400px;
-        height: 250px;
-        border-top: 1px solid red;
-        background-color: rgb(244, 245, 246);
-        div {
-            width: 100%;
-            height: 50px;
-            font-size: 20px;
-            font-weight: bold;
-            line-height: 50px;
-            padding-left: 18px;
-        }
-        ul {
-            width: 100%;
-            height: 200px;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            align-items: center;
-            list-style: none;
-            li {
-                // flex: 1;
-                padding: 18px;
-                // width: 100px;
-                a {
-                    text-decoration: none;
-                    color: rgb(119, 119, 119);
-                }
-            }
-        }
-    }
+  *{
+      margin: 0;
+      padding: 0;
+  }
+  .more {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      background-color: #f4f5f6;
+      text-align: left;
+      border-top: 3px solid #c43333;
+      div {
+          display: flex;
+          align-items: center;
+          flex: 30%;
+          margin: 5px;
+          padding: 0 10px;
+          font-size: 20px;
+          font-weight: bold;
+      }
+      ul {
+          flex: 70%;
+          display: flex;
+          justify-content: space-around;
+          flex-wrap: wrap;
+          align-items: center;
+          list-style: none;
+          li {
+              padding: 5px;
+              a {
+                  text-decoration: none;
+                  color: #777777;
+              }
+          }
+      }
+  }
 </style>
