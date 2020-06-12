@@ -4,7 +4,6 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import Index from "../components/Index"
-import HelloWorld from "../components/HelloWorld"
 
 let routes = [
     {
@@ -12,11 +11,7 @@ let routes = [
         name: "index",
         component: Index
     },
-    {
-        path: "/hello",
-        name: "hello",
-        component: HelloWorld
-    },
+    \
 ]
 
 export default new VueRouter({
