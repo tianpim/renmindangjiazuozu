@@ -48,7 +48,6 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 .tt-index-login {
     width: 350px;
     height: 250px;
-    margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;

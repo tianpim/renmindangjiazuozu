@@ -14,7 +14,8 @@
         </div>
         <!-- 内容区域中间部分 -->
         <div class="tt-content-middle">
-
+            <Port></Port>
+            <NewsList></NewsList>
         </div>
         <!-- 内容区域右边部分 -->
         <div class="tt-content-right">
@@ -40,7 +41,9 @@
 import Header from "../components/header/Header";
 import Nav from "../components/nav/Nav";
 import SearchInput from "../components/searchinput/SearchInput";
-import Login from "../components/login/Login"
+import Login from "../components/login/Login";
+import Port from "../components/port/Port";
+import NewsList from "../components/newslist/NewsList";
 export default {
 //import引入的组件需要注入到对象中才能使用
 components: {
@@ -48,6 +51,8 @@ components: {
     Nav,
     SearchInput,
     Login,
+    Port,
+    NewsList,
 },
 data() {
 //这里存放数据
@@ -101,14 +106,17 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 
         .tt-content-middle {
             flex: 2;
-
+            padding: 5px;
         }
 
         .tt-content-right {
             flex: 2;
+            margin-left: 37px;
             .login{
-                padding: 50px;
-                background-color: #ddd;
+                margin-top: 10px;
+                padding: 30px;
+                width: 420px;
+                background-color:#ddd;
             }
         }
     }
