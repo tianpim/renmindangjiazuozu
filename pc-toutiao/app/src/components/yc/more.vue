@@ -1,6 +1,7 @@
 <!--  -->
 <template>
   <div class="more">
+      <div>更多</div>
     <ul>
       <li v-for="item,index in morelink" :key="index">
         <a :href="item.path">{{item.title}}</a>
@@ -63,22 +64,32 @@ export default {
         width: 400px;
         height: 250px;
         border-top: 1px solid red;
-    ul {
-        width: 100%;
-        height: 100%;
-        display: flex;
         background-color: rgb(244, 245, 246);
-        justify-content: space-around;
-        flex-wrap: wrap;
-        align-items: center;
-        list-style: none;
-        li {
-            // flex: 1;
-            padding: 18px;
-            a {
-                text-decoration: none;
+        div {
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 50px;
+            padding-left: 18px;
+        }
+        ul {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            align-items: center;
+            list-style: none;
+            li {
+                // flex: 1;
+                padding: 18px;
+                // width: 100px;
+                a {
+                    text-decoration: none;
+                    color: rgb(119, 119, 119);
+                }
             }
         }
-    }
     }
 </style>
