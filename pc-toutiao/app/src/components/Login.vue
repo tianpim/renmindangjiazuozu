@@ -17,11 +17,11 @@
             <div class="login-other">
                 <div class="user-agreement">
                     <span>
-                        登录/注册即表示你同意
-                        <a href="https://www.toutiao.com/user_agreement/" target="_blank">用户协议</a>
-                        和
-                        <a href="https://www.toutiao.com/privacy_protection/" target="_blank">隐私条款</a>
-                    </span>
+                                登录/注册即表示你同意
+                                <a href="https://www.toutiao.com/user_agreement/" target="_blank">用户协议</a>
+                                和
+                                <a href="https://www.toutiao.com/privacy_protection/" target="_blank">隐私条款</a>
+                            </span>
                 </div>
                 <div class="register-model">
                     <router-link to="register">注册</router-link>
@@ -57,6 +57,7 @@ watch: {
 },
 //方法集合
 methods: {
+    //登录
     submitLogin: function() {
         this.axios({
             method: "POST",
@@ -74,7 +75,11 @@ methods: {
                 this.$router.push("/")
             }
         })
+<<<<<<< HEAD
+    
+=======
         
+>>>>>>> remote_demo/master
     }
 },
 //生命周期 - 创建完成（可以访问当前this实例）
@@ -138,14 +143,12 @@ activated() {
             background-size: 35%;
             background-position: top;
         }
-
         .login-model {
             display: flex;
             flex-direction: column;
             margin: 0 auto;
             width: 400px;
             height: 300px;
-
             .login-main {
                 flex: 90%;
                 display: flex;
@@ -153,12 +156,11 @@ activated() {
                 padding: 10px 25px;
                 border-radius: 5px;
                 background-color: white;
-                & > div {
+                &>div {
                     display: flex;
                     justify-content: center;
                     align-items: center;
                 }
-
                 input {
                     padding: 0 10px;
                     width: 100%;
@@ -170,20 +172,18 @@ activated() {
                     border: 1px solid #d9d9d9;
                     border-radius: 5px;
                 }
-
                 .main-title {
                     flex: 20%;
                     font-size: 20px;
                     color: black;
                     border-bottom: 1px solid #d9d9d9;
                 }
-
-                .main-email ,.main-password{
+                .main-email,
+                .main-password {
                     margin: 5px 0;
                     padding: 10px 0;
                     flex: 30%;
                 }
-
                 .main-confirm {
                     position: relative;
                     flex: 20%;
@@ -193,7 +193,6 @@ activated() {
                     outline: none;
                     transition: all ease-in-out .3s;
                     cursor: pointer;
-
                     &::after {
                         content: "确认";
                         position: absolute;
@@ -201,13 +200,11 @@ activated() {
                         font-size: 20px;
                         color: white;
                     }
-
                     &:hover {
-                    transform: scale(1.01);
-                }
+                        transform: scale(1.01);
+                    }
                 }
             }
-
             .login-other {
                 flex: 10%;
                 display: flex;
@@ -215,15 +212,12 @@ activated() {
                 align-items: center;
                 font-size: 14px;
                 color: grey;
-
                 a {
                     color: #5a72a1;
                 }
-
                 .user-agreement {
                     flex: 80%;
                 }
-
                 .register-model {
                     flex: 20%;
                 }
