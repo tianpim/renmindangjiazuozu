@@ -6,12 +6,12 @@
             <div class="login-main">
                 <div class="main-title">账密登录</div>
                 <div class="main-email">
-                    <input type="text" placeholder="账号 / 邮箱">
+                    <input type="text" v-model="username" placeholder="账号 / 邮箱">
                 </div>
                 <div class="main-password">
-                    <input type="text" placeholder="密码">
+                    <input type="password" v-model="password" placeholder="密码">
                 </div>
-                <div class="main-confirm">
+                <div class="main-confirm" @click="submitLogin">
                 </div>
             </div>
             <div class="login-other">
@@ -43,7 +43,8 @@ components() {
 data() {
 //这里存放数据
 return {
-    
+    username: "",
+    password: ""
 };
 },
 //监听属性 类似于data概念
@@ -55,8 +56,19 @@ watch() {
 
 },
 //方法集合
-methods() {
-
+methods: {
+    submitLogin: function() {
+        this.axios({
+            method: "POST",
+            url: "/loginCheck",
+            data: {
+                username: this.username,
+                password: this.password
+            }
+        }).then(function(res){
+            console.log(res)
+        })
+    }
 },
 //生命周期 - 创建完成（可以访问当前this实例）
 created() {
