@@ -127,10 +127,10 @@ activated() {
 <style lang='less' scoped>
     @red: #d84b4b;
     .nav-container {
-        display: inline-flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        height: 100%;
         h3 {
             font-size: 30px;
             user-select: none;

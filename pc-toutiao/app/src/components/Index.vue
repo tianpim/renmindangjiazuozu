@@ -122,10 +122,6 @@ activated() {
     }
 
     .main-right {
-        display: flex;
-        flex-direction: column;
-
-        justify-content: flex-start;
         flex: 30%;
 
         .search-container {

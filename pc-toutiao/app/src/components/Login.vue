@@ -118,6 +118,8 @@ activated() {
 <style lang='less' scoped>
     .container {
         position: relative;
+        display: flex;
+        justify-content: center;
         width: 100%;
         height: 100vh;
         background-image: url("../assets/images/login_bg.png");
@@ -131,8 +133,9 @@ activated() {
             color: #e43c46;
         }
         .vertical-text {
+            position: absolute;
             width: 100%;
-            height: 200px;
+            height: 100%;
             background-image: url("../assets/images/login_bg_font.png");
             background-repeat: no-repeat;
             background-size: 35%;
@@ -140,9 +143,10 @@ activated() {
         }
 
         .login-model {
+            position: absolute;
+            top: 250px;
             display: flex;
             flex-direction: column;
-            margin: 0 auto;
             width: 400px;
             height: 300px;
 

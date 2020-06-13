@@ -1,6 +1,6 @@
 <template>
-        <div class='tt-login' v-show="!$store.state.loginStatus">
-            <div class="tt-no-login">
+        <div class='tt-login' >
+            <div class="tt-no-login" v-show="!$store.state.loginStatus">
                 <div class="tt-login-tips">
                     <span>登录后可以保存您的浏览喜好、评论、收藏，并与APP同步，更可以发布微头条</span>
                 </div>
@@ -19,7 +19,25 @@
                 </div>
             </div>
             <div class='tt-is-login' v-show="$store.state.loginStatus">
-                <div class="exit-login"></div>
+                <div class="exit-login">
+                    <span @click="exitLogin">退出登录</span>
+                </div>
+                <div class="user-info">
+                    <div class="user-avator">
+                        <img :src="$store.state.userInfo.avator" alt="">
+                    </div>
+                    <div class="user-name">{{$store.state.userInfo.nickname}}</div>
+                    <div class="user-upload-content">
+                        <div class="user-toutiao">
+                            <span class="count">0</span>
+                            <span class="type">头条数</span>
+                        </div>
+                        <div class="user-article">
+                            <span class="count">0</span>
+                            <span class="type">文章数</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 </template>
@@ -41,7 +59,7 @@ return {
 },
 //监听属性 类似于data概念
 computed: {
-
+    
 },
 //监控data中的数据变化
 watch: {
@@ -49,7 +67,11 @@ watch: {
 },
 //方法集合
 methods: {
-
+    exitLogin: function() {
+        this.$store.commit({
+            type: "exitLogin"
+        })
+    }
 },
 //生命周期 - 创建完成（可以访问当前this实例）
 created() {
@@ -161,11 +183,87 @@ activated() {
         }
 
         .tt-is-login {
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            
+            background-color: white;
+
             .exit-login {
+                flex: 5%;
+                padding: 5px;
+                font-size: 14px;
+                text-align: right;
+                color: #a4a4a4;
+                transition: all ease-in-out .3s;
+
+                &:hover {
+                    color: black;
+                }
                 
+                span {
+                    cursor: pointer;
+                }
+            }
+
+            .user-info {
+                flex: 95%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                & > div {
+                    margin: 5px 0;
+                }
+
+                .user-avator {
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 50%;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .user-upload-content {
+                    display: flex;
+                    align-items: center;
+                    flex: 1;
+                    width: 100%;
+
+                    .count {
+                        font-size: 25px;
+                        font-weight: bold;
+                    }
+                    
+                    .user-toutiao {
+                        position: relative;
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            top: 50%;
+                            right: 0;
+                            display: inline-block;
+                            height: 70%;
+                            border: 1px solid black;
+                            transform: translateY(-50%);
+                        }
+                    }
+
+                    .user-article {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
             }
         }
     }

@@ -13,6 +13,10 @@ const mutations = {
     modifyLoginInfo: function(state ,{params}) {
         this.state.userInfo = params;
         this.state.loginStatus = true;
+    },
+    exitLogin: function(state) {
+        this.state.userInfo = "";
+        this.state.loginStatus = false;
     }
 };
 
