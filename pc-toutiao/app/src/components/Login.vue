@@ -58,13 +58,23 @@ watch: {
 //方法集合
 methods: {
     submitLogin: function() {
-        this.$store.dispatch({
-            type: "submitLogin",
-            params: {
-                userName: this.username,
-                userPw: this.password
+        this.axios({
+            method: "POST",
+            url: "/loginCheck",
+            data: {
+                username: this.username,
+                password: this.password
+            }
+        }).then(({data}) => {
+            if(data.msg === "登录成功") {
+                this.$store.commit({
+                    type: "modifyLoginInfo",
+                    params: data.wdata
+                })
+                this.$router.push("/")
             }
         })
+        
     }
 },
 //生命周期 - 创建完成（可以访问当前this实例）

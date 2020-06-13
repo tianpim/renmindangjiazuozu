@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div class='tt-login'>
         <div class="tt-login-tips">
             <span>登录后可以保存您的浏览喜好、评论、收藏，并与APP同步，更可以发布微头条</span>
@@ -17,6 +18,31 @@
             </div>
         </div>
     </div>
+=======
+        <div class='tt-login' v-show="!$store.state.loginStatus">
+            <div class="tt-no-login">
+                <div class="tt-login-tips">
+                    <span>登录后可以保存您的浏览喜好、评论、收藏，并与APP同步，更可以发布微头条</span>
+                </div>
+                <div class="tt-login-button">
+                    <router-link to="login">登录</router-link>
+                </div>
+                <div class="tt-login-more">
+                    <div class="login-qq">
+                        <div class="more-icon qq"></div>
+                        <span class="more-name">QQ</span>
+                    </div>
+                    <div class="login-wx">
+                        <div class="more-icon wx"></div>
+                        <span class="more-name">微信</span>
+                    </div>
+                </div>
+            </div>
+            <div class='tt-is-login' v-show="$store.state.loginStatus">
+                <div class="exit-login"></div>
+            </div>
+        </div>
+>>>>>>> 560d6fc7d3213f4217924a1f7ba9394b8959993d
 </template>
 
 <script>
@@ -25,7 +51,11 @@
 
 export default {
 //import引入的组件需要注入到对象中才能使用
+<<<<<<< HEAD
 components() {
+=======
+components: {
+>>>>>>> 560d6fc7d3213f4217924a1f7ba9394b8959993d
 
 },
 data() {
@@ -35,6 +65,7 @@ return {
 };
 },
 //监听属性 类似于data概念
+<<<<<<< HEAD
 computed() {
 
 },
@@ -44,6 +75,17 @@ watch() {
 },
 //方法集合
 methods() {
+=======
+computed: {
+
+},
+//监控data中的数据变化
+watch: {
+
+},
+//方法集合
+methods: {
+>>>>>>> 560d6fc7d3213f4217924a1f7ba9394b8959993d
 
 },
 //生命周期 - 创建完成（可以访问当前this实例）
@@ -104,6 +146,10 @@ activated() {
             display: flex;
             justify-content: center;
             align-items: center;
+<<<<<<< HEAD
+=======
+            margin: 5px 0;
+>>>>>>> 560d6fc7d3213f4217924a1f7ba9394b8959993d
             flex: 30%;
 
             a {
@@ -120,6 +166,10 @@ activated() {
         .tt-login-more {
             display: flex;
             justify-content: center;
+<<<<<<< HEAD
+=======
+            margin: 15px 0;
+>>>>>>> 560d6fc7d3213f4217924a1f7ba9394b8959993d
             flex: 35%;
 
             div {
@@ -132,7 +182,11 @@ activated() {
                     flex: 0 1 48px;
                     display: inline-block;
                     width: 48px;
+<<<<<<< HEAD
                     border: 1px solid black;
+=======
+                    border: 2px solid #aeabab;
+>>>>>>> 560d6fc7d3213f4217924a1f7ba9394b8959993d
                     border-radius: 50%;
                     background-repeat: no-repeat;
                     background-position: center;
@@ -152,5 +206,17 @@ activated() {
                 }
             }
         }
+<<<<<<< HEAD
+=======
+
+        .tt-is-login {
+            display: flex;
+            flex-direction: column;
+            
+            .exit-login {
+                
+            }
+        }
+>>>>>>> 560d6fc7d3213f4217924a1f7ba9394b8959993d
     }
 </style>

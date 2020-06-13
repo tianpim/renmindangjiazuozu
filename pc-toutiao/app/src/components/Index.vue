@@ -5,9 +5,13 @@
         <div class="main-left">
             <Nav></Nav>
         </div>
+<<<<<<< HEAD
         <div class="main-center">
             <Comment></Comment>
         </div>
+=======
+        <div class="main-center"></div>
+>>>>>>> 560d6fc7d3213f4217924a1f7ba9394b8959993d
         <div class="main-right">
             <div class="search-container">
                 <Search></Search>

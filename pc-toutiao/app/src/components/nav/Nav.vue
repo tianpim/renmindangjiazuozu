@@ -13,7 +13,11 @@
 
 export default {
 //import引入的组件需要注入到对象中才能使用
+<<<<<<< HEAD
 components() {
+=======
+components: {
+>>>>>>> 560d6fc7d3213f4217924a1f7ba9394b8959993d
 
 },
 data() {
@@ -73,11 +77,19 @@ return {
 };
 },
 //监听属性 类似于data概念
+<<<<<<< HEAD
 computed() {
 
 },
 //监控data中的数据变化
 watch() {
+=======
+computed: {
+
+},
+//监控data中的数据变化
+watch: {
+>>>>>>> 560d6fc7d3213f4217924a1f7ba9394b8959993d
 
 },
 //方法集合
