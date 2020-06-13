@@ -19,6 +19,7 @@
                 </div>
             </div>
             <div class='tt-is-login' v-show="$store.state.loginStatus">
+                <div class="exit-login"></div>
             </div>
         </div>
 </template>
@@ -156,6 +157,15 @@ activated() {
                     flex: 1;
                     font-size: 14px;
                 }
+            }
+        }
+
+        .tt-is-login {
+            display: flex;
+            flex-direction: column;
+            
+            .exit-login {
+                
             }
         }
     }
