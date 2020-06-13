@@ -16,6 +16,9 @@
             <div class="more-container">
                 <More></More>
             </div>
+            <div class="friends-link">
+                <Friendslink></Friendslink>
+            </div>
         </div>
     </div>
     </div>
@@ -28,6 +31,7 @@ import Header from "./header/Header.vue"
 import Search from "./search/Search.vue"
 import Login from "./login/Login.vue"
 import More from "./more/More.vue"
+import Friendslink from "./friendslink/Friendslink.vue"
 import { VueEditor } from "vue2-editor";
 
 export default {
@@ -38,6 +42,7 @@ components: {
     Search,
     Login,
     More,
+    Friendslink,
     VueEditor
 },
 data: function() {
@@ -133,6 +138,7 @@ activated() {
         }
 
         .login-container {
+            margin: 10px 0;
             padding: 20px;
             width: 70%;
             height: 250px;
@@ -140,6 +146,12 @@ activated() {
         }
 
         .more-container {
+            margin: 10px 0;
+            width: 70%;
+            height: 220px;
+        }
+
+        .friends-link {
             margin: 10px 0;
             width: 70%;
             height: 220px;

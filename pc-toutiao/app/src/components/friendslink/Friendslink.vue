@@ -54,37 +54,32 @@ export default {
 };
 </script>
 <style lang='less' scoped>
-*{
-      margin: 0;
-      padding: 0;
-  }
   .friendslink {
       display: flex;
       flex-direction: column;
-      width: 70%;
+      width: 100%;
       height: 100%;
       background-color: #f4f5f6;
       text-align: left;
-      border-top: 3px solid #c43333;
+      border-top: 2px solid #c43333;
       div {
           display: flex;
           align-items: center;
           flex: 30%;
-          padding: 0 10px;
+          padding: 0 15px;
           font-size: 20px;
           font-weight: bold;
       }
       ul {
           flex: 70%;
+          padding: 0 5px;
           display: flex;
-          justify-content: space-around;
+          justify-content: flex-start;
           flex-wrap: wrap;
           align-items: center;
-          list-style: none;
           li {
-              padding: 5px;
+              margin: 10px;
               a {
-                  text-decoration: none;
                   color: #777777;
               }
           }
