@@ -57,6 +57,7 @@ watch: {
 },
 //方法集合
 methods: {
+    //登录
     submitLogin: function() {
         this.$store.dispatch({
             type: "submitLogin",
@@ -65,6 +66,7 @@ methods: {
                 userPw: this.password
             }
         })
+    
     }
 },
 //生命周期 - 创建完成（可以访问当前this实例）
