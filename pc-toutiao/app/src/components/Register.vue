@@ -9,7 +9,7 @@
                     <input type="text" v-model="username" placeholder="账号 / 邮箱">
                 </div>
                 <div class="main-password">
-                    <input type="text" v-model="password" placeholder="密码">
+                    <input type="password" v-model="password" placeholder="密码">
                 </div>
                 <div class="main-confirm" @click="submitRegister"></div>
             </div>
@@ -57,7 +57,16 @@ watch() {
 //方法集合
 methods: {
     submitRegister: function() {
-        console.log(this.$root.$store)
+        this.axios({
+            method: "POST",
+            url: "/createUser",
+            data: {
+                username: this.username,
+                password: this.password
+            }
+        }).then(function(res){
+            console.log(res)
+        })
     }
 },
 //生命周期 - 创建完成（可以访问当前this实例）

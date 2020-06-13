@@ -6,12 +6,12 @@
             <div class="login-main">
                 <div class="main-title">账密登录</div>
                 <div class="main-email">
-                    <input type="text" placeholder="账号 / 邮箱" v-model="loginForm.username">
+                    <input type="text" v-model="username" placeholder="账号 / 邮箱">
                 </div>
                 <div class="main-password">
-                    <input type="text" placeholder="密码" v-model="loginForm.password">
+                    <input type="password" v-model="password" @keyup.enter="submitLogin" placeholder="密码">
                 </div>
-                <div class="main-confirm" @click="login">
+                <div class="main-confirm" @click="submitLogin">
                 </div>
             </div>
             <div class="login-other">
@@ -32,101 +32,78 @@
 </template>
 
 <script>
-    //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
-    //例如：import 《组件名称》 from '《组件路径》';
-    export default {
-        //import引入的组件需要注入到对象中才能使用
-        components: {},
-        data() {
-            //这里存放数据
-            return {
-                loginForm:{
-                    username:'',
-                    password:'',
-                }
-            };
-        },
-        //监听属性 类似于data概念
-        computed: {},
-        //监控data中的数据变化
-        watch:{},
-        //方法集合
-        methods: {
-            //登录
-            login() {
-                this.post('http://tt.linweiqin.com/api/tt/loginCheck', {
-                        username: this.loginForm.username,
-                        password: this.loginForm.password
-                    })
-                    .then(res => {
-                        // 存储返回数据
-                        let resData = {
-                            msg: res.data.msg,
-                            status: res.status, //状态码
-                            dataStatus: res.data.ret
-                        };
-                        if (resData.status == 200) {
-                            // 判断是否登录成功状态码
-                            if (resData.msg == '登录成功') {
-                                // 获取登录成功后的数据
-                                let resquest = (res.data.wdata);
-                                this.resquest = (resquest);
-                                // 存储注册成功后的数据
-                                let sucssresquest = this.resquest;
-                                sucssresquest.sucssStatus = true; //表示是否登录
-                                alert('登录成功')
-                                this.$store.commit('setToken', res.data.wdata.oauth_token) //存储token
-                                // 封装数据以对象形式存储到vuex
-                                let information = {
-                                    sucssStatus: res.data.wdata.sucssStatus, //登录状态
-                                    expire_time: res.data.wdata.expire_time, //获取事件
-                                    id: res.data.wdata.user_id, //用户id
-                                    nickname: res.data.wdata.nickname, //用户别名
-                                    avator: res.data.wdata.avator //用户头像
-                                }
-                                this.$store.commit('setInformation', information);
-                                this.$router.push({
-                                    path: 'index',
-                                    // name:'index',
-                                    // params: {
-                                    //     sucssresquest
-                                    // } //通过路由传注册后的数据给首页
-                                })
-                                // 判断登录失败的类型
-                            } else if (resData.dataStatus == 100) {
-                                alert('账号或密码输入有误,请重新输入')
-                            }
-                        } else if (resData.status == 100) {
-                            alert('服务器繁忙!')
-                        }
-                        // this.$router.push({
-                        //     path: 'index'
-                        // });
-                    })
-                    .catch(err => {
-                        console.error(err);
-                    })
+//这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
+//例如：import 《组件名称》 from '《组件路径》';
+
+export default {
+//import引入的组件需要注入到对象中才能使用
+components: {
+
+},
+data() {
+//这里存放数据
+return {
+    username: "",
+    password: ""
+};
+},
+//监听属性 类似于data概念
+computed: {
+
+},
+//监控data中的数据变化
+watch: {
+
+},
+//方法集合
+methods: {
+    submitLogin: function() {
+        this.$store.dispatch({
+            type: "submitLogin",
+            params: {
+                userName: this.username,
+                userPw: this.password
             }
-        },
-        //生命周期 - 创建完成（可以访问当前this实例）
-        created() {},
-        //生命周期 - 挂载完成（可以访问DOM元素）
-        mounted() {},
-        //生命周期 - 创建之前
-        beforeCreate() {},
-        //生命周期 - 挂载之前
-        beforeMount() {},
-        //生命周期 - 更新之前
-        beforeUpdate() {},
-        //生命周期 - 更新之后
-        updated() {},
-        //生命周期 - 销毁之前
-        beforeDestroy() {},
-        //生命周期 - 销毁完成
-        destroyed() {},
-        //如果页面有keep-alive缓存功能，这个函数会触发
-        activated() {},
+        })
     }
+},
+//生命周期 - 创建完成（可以访问当前this实例）
+created() {
+
+},
+//生命周期 - 挂载完成（可以访问DOM元素）
+mounted() {
+
+},
+//生命周期 - 创建之前
+beforeCreate() {
+
+},
+//生命周期 - 挂载之前
+beforeMount() {
+
+},
+//生命周期 - 更新之前
+beforeUpdate() {
+
+},
+ //生命周期 - 更新之后
+updated() {
+
+},
+//生命周期 - 销毁之前
+beforeDestroy() {
+
+},
+//生命周期 - 销毁完成
+destroyed() {
+
+},
+//如果页面有keep-alive缓存功能，这个函数会触发
+activated() {
+
+},
+}
 </script>
 <style lang='less' scoped>
     .container {
