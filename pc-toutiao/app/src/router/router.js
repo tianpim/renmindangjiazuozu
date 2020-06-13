@@ -7,8 +7,7 @@ import Index from "../components/Index"
 import Login from "../components/Login"
 import Register from "../components/Register"
 
-let routes = [
-    {
+let routes = [{
         path: "/",
         name: "index",
         component: Index

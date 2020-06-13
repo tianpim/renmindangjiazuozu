@@ -9,14 +9,15 @@ import VueAxios from 'vue-axios'
 import Vuex from 'vuex'
 import store from './vuex/store'
 
-Vue.use(VueAxios ,axios);
+Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false;
-axios.defaults.baseURL= "http://tt.linweiqin.com/api/tt";
+axios.defaults.baseURL = "http://tt.linweiqin.com/api/tt";
+
 
 new Vue({
-  el: "#app",
-  store,
-  router,
-  render: h => h(App),
+    el: "#app",
+    store,
+    router,
+    render: h => h(App),
 })
