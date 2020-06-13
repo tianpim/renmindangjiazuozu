@@ -5,7 +5,13 @@
         <div class="main-left">
             <Nav></Nav>
         </div>
+<<<<<<< HEAD
+        <div class="main-center">
+            <Comment></Comment>
+        </div>
+=======
         <div class="main-center"></div>
+>>>>>>> 560d6fc7d3213f4217924a1f7ba9394b8959993d
         <div class="main-right">
             <div class="search-container">
                 <Search></Search>
@@ -33,6 +39,7 @@ import Login from "./login/Login.vue"
 import More from "./more/More.vue"
 import Friendslink from "./friendslink/Friendslink.vue"
 import { VueEditor } from "vue2-editor";
+import Comment from './comment/Comment'
 
 export default {
 //import引入的组件需要注入到对象中才能使用
@@ -43,7 +50,8 @@ components: {
     Login,
     More,
     Friendslink,
-    VueEditor
+    VueEditor,
+    Comment
 },
 data: function() {
 //这里存放数据
