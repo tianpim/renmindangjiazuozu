@@ -9,7 +9,7 @@
                     <input type="text" v-model="username" placeholder="账号 / 邮箱">
                 </div>
                 <div class="main-password">
-                    <input type="password" v-model="password" placeholder="密码">
+                    <input type="password" v-model="password" @keyup.enter="submitLogin" placeholder="密码">
                 </div>
                 <div class="main-confirm" @click="submitLogin">
                 </div>
@@ -37,7 +37,7 @@
 
 export default {
 //import引入的组件需要注入到对象中才能使用
-components() {
+components: {
 
 },
 data() {
@@ -48,25 +48,22 @@ return {
 };
 },
 //监听属性 类似于data概念
-computed() {
+computed: {
 
 },
 //监控data中的数据变化
-watch() {
+watch: {
 
 },
 //方法集合
 methods: {
     submitLogin: function() {
-        this.axios({
-            method: "POST",
-            url: "/loginCheck",
-            data: {
-                username: this.username,
-                password: this.password
+        this.$store.dispatch({
+            type: "submitLogin",
+            params: {
+                userName: this.username,
+                userPw: this.password
             }
-        }).then(function(res){
-            console.log(res)
         })
     }
 },
