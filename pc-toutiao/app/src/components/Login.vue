@@ -3,6 +3,8 @@
         <div class="header">今日头条</div>
         <div class="vertical-text"></div>
         <div class="login-model">
+            <el-alert class="warning" v-show="isNull" title="账号或密码不能为空" type="warning" show-icon></el-alert>
+            <el-alert class="error" v-show="isError" title="账号或密码错误" type="error" show-icon></el-alert>
             <div class="login-main">
                 <div class="main-title">账密登录</div>
                 <div class="main-email">
@@ -11,7 +13,7 @@
                 <div class="main-password">
                     <input type="password" v-model="password" @keyup.enter="submitLogin" placeholder="密码">
                 </div>
-                <div class="main-confirm" @click="submitLogin">
+                <div class="main-confirm" @click="check(submitLogin)">
                 </div>
             </div>
             <div class="login-other">
@@ -44,7 +46,9 @@ data() {
 //这里存放数据
 return {
     username: "",
-    password: ""
+    password: "",
+    isNull: false,
+    isError: false,
 };
 },
 //监听属性 类似于data概念
@@ -57,6 +61,17 @@ watch: {
 },
 //方法集合
 methods: {
+    check: function(callback) {
+        if(this.username && this.password) {
+            callback();
+        }
+        else {
+            this.isNull = true;
+            setTimeout(() => {
+                this.isNull = false;
+            } ,3000)
+        }
+    },
     submitLogin: function() {
         this.axios({
             method: "POST",
@@ -72,6 +87,12 @@ methods: {
                     params: data.wdata
                 })
                 this.$router.push("/")
+            }
+            else {
+                this.isError = true;
+                setTimeout(() => {
+                this.isError = false;
+            } ,3000)
             }
         })
         
@@ -149,6 +170,11 @@ activated() {
             flex-direction: column;
             width: 400px;
             height: 300px;
+
+            .warning ,.error {
+                position: absolute;
+                top: -12%;
+            }
 
             .login-main {
                 flex: 90%;

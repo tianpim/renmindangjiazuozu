@@ -64,7 +64,12 @@ watch: {
 },
 //方法集合
 methods: {
-
+    loginSuccess: function() {
+        this.loginSuccessTips = true;
+        setTimeout(() => {
+            this.loginSuccessTips = false;
+        } ,3000)
+    }
 },
 //生命周期 - 创建完成（可以访问当前this实例）
 created() {
@@ -73,10 +78,7 @@ created() {
 //生命周期 - 挂载完成（可以访问DOM元素）
 mounted() {
     if(this.$store.state.loginStatus){
-        this.loginSuccessTips = true;
-        setTimeout(() => {
-            this.loginSuccessTips = false;
-        } ,3000)
+        this.loginSuccess();
     }
 },
 //生命周期 - 创建之前

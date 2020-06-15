@@ -61,7 +61,7 @@ export default {
       height: 100%;
       background-color: #f4f5f6;
       text-align: left;
-      border-top: 2px solid #c43333;
+      border-top: 3px solid #c43333;
       div {
           display: flex;
           align-items: center;
