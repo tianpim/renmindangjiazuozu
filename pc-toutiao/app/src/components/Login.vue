@@ -3,8 +3,7 @@
         <div class="header">今日头条</div>
         <div class="vertical-text"></div>
         <div class="login-model">
-            <el-alert class="warning" v-show="isNull" title="账号或密码不能为空" type="warning" show-icon></el-alert>
-            <el-alert class="error" v-show="isError" title="账号或密码错误" type="error" show-icon></el-alert>
+            <el-alert class="tips" v-show="tipsStatus" :title="tipsMsg" :type="tipsType" show-icon></el-alert>
             <div class="login-main">
                 <div class="main-title">账密登录</div>
                 <div class="main-email">
@@ -13,7 +12,7 @@
                 <div class="main-password">
                     <input type="password" v-model="password" @keyup.enter="submitLogin" placeholder="密码">
                 </div>
-                <div class="main-confirm" @click="check(submitLogin)">
+                <div class="main-confirm" @click="submitLogin">
                 </div>
             </div>
             <div class="login-other">
@@ -47,8 +46,9 @@ data() {
 return {
     username: "",
     password: "",
-    isNull: false,
-    isError: false,
+    tipsType: "",
+    tipsMsg: "",
+    tipsStatus: false,
 };
 },
 //监听属性 类似于data概念
@@ -61,16 +61,39 @@ watch: {
 },
 //方法集合
 methods: {
-    check: function(callback) {
-        if(this.username && this.password) {
-            callback();
+    check: function(data) {
+        let type = "";
+        if(this.username && this.password){
+            switch(data.msg) {
+                case "登录成功":
+                    this.$store.commit({
+                        type: "modifyLoginInfo",
+                        params: data.wdata
+                    })
+                    this.$router.push("/")
+                    break;
+    
+                case "账号密码错误":
+                    type = "error";
+                    break;
+    
+                default:
+                    type = "error";
+                    msg = "unknow error";
+            }
         }
         else {
-            this.isNull = true;
-            setTimeout(() => {
-                this.isNull = false;
-            } ,3000)
+            type = "warning"
+            data.msg = "帐密不能为空";
         }
+
+        this.tipsType = type;
+        this.tipsMsg = data.msg;
+        this.tipsStatus = true;
+
+        setTimeout(() => {
+            this.tipsStatus = false;
+        } ,2500)
     },
     submitLogin: function() {
         this.axios({
@@ -81,21 +104,8 @@ methods: {
                 password: this.password
             }
         }).then(({data}) => {
-            if(data.msg === "登录成功") {
-                this.$store.commit({
-                    type: "modifyLoginInfo",
-                    params: data.wdata
-                })
-                this.$router.push("/")
-            }
-            else {
-                this.isError = true;
-                setTimeout(() => {
-                this.isError = false;
-            } ,3000)
-            }
+            this.check(data);
         })
-        
     }
 },
 //生命周期 - 创建完成（可以访问当前this实例）
@@ -185,7 +195,7 @@ activated() {
             width: 400px;
             height: 300px;
 
-            .warning ,.error {
+            .tips {
                 position: absolute;
                 top: -12%;
             }
