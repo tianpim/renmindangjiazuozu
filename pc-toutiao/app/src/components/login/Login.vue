@@ -29,11 +29,11 @@
                     <div class="user-name">{{$store.state.userInfo.nickname}}</div>
                     <div class="user-upload-content">
                         <div class="user-toutiao">
-                            <span class="count">0</span>
+                            <span class="count">{{$store.state.userInfo.tt_count}}</span>
                             <span class="type">头条数</span>
                         </div>
                         <div class="user-article">
-                            <span class="count">0</span>
+                            <span class="count">{{$store.state.userInfo.article_count}}</span>
                             <span class="type">文章数</span>
                         </div>
                     </div>
@@ -68,9 +68,19 @@ watch: {
 //方法集合
 methods: {
     exitLogin: function() {
-        this.$store.commit({
-            type: "exitLogin"
-        })
+        this.axios({
+            method: 'POST',
+            url: "/logout",
+        }).then(res => {
+            this.$message({
+                type: "success",
+                message: "退出成功",
+            })
+            this.$store.commit({
+                type: "exitLogin"
+            })
+        });
+        
     }
 },
 //生命周期 - 创建完成（可以访问当前this实例）

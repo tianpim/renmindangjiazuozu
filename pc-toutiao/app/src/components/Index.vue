@@ -7,7 +7,9 @@
         </div>
         <div class="main-center">
             <el-alert class="login-success" v-show="loginSuccessTips" title="登陆成功" type="success" show-icon></el-alert>
-            <div class="comment-input-container"></div>
+            <div class="comment-input-container">
+                <Comment></Comment>
+            </div>
         </div>
         <div class="main-right">
             <div class="search-container">
@@ -32,6 +34,7 @@
 import Nav from "./nav/Nav.vue"
 import Header from "./header/Header.vue"
 import Search from "./search/Search.vue"
+import Comment from "./comment/Comment.vue"
 import Login from "./login/Login.vue"
 import More from "./more/More.vue"
 import Friendslink from "./friendslink/Friendslink.vue"
@@ -43,6 +46,7 @@ components: {
     Nav,
     Header,
     Search,
+    Comment,
     Login,
     More,
     Friendslink,
@@ -60,7 +64,7 @@ computed: {
 },
 //监控data中的数据变化
 watch: {
-
+    
 },
 //方法集合
 methods: {
@@ -154,8 +158,8 @@ activated() {
 
         .comment-input-container {
             width: 100%;
-            height: 250px;
-            border: 1px solid black;
+            height: auto;
+            border: 1px solid #e8e8e8;
         }
     }
 
