@@ -5,7 +5,10 @@
         <div class="main-left">
             <Nav></Nav>
         </div>
-        <div class="main-center"></div>
+        <div class="main-center">
+            <el-alert class="login-success" v-show="loginSuccessTips" title="登陆成功" type="success" show-icon></el-alert>
+            <div class="comment-input-container"></div>
+        </div>
         <div class="main-right">
             <div class="search-container">
                 <Search></Search>
@@ -48,7 +51,7 @@ components: {
 data: function() {
 //这里存放数据
     return {
-
+        loginSuccessTips: false,
     };
 },
 //监听属性 类似于data概念
@@ -69,7 +72,12 @@ created() {
 },
 //生命周期 - 挂载完成（可以访问DOM元素）
 mounted() {
-
+    if(this.$store.state.loginStatus){
+        this.loginSuccessTips = true;
+        setTimeout(() => {
+            this.loginSuccessTips = false;
+        } ,3000)
+    }
 },
 //生命周期 - 创建之前
 beforeCreate() {
@@ -118,7 +126,24 @@ activated() {
     }
 
     .main-center {
+        position: relative;
         flex: 50%;
+        margin: 10px 0;
+        padding: 0 10px;
+
+        .login-success {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            transform: translateX(-50%);
+        }
+
+        .comment-input-container {
+            width: 100%;
+            height: 400px;
+            border: 1px solid black;
+        }
     }
 
     .main-right {
