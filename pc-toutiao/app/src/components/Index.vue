@@ -112,6 +112,20 @@ activated() {
 }
 </script>
 <style lang='less' scoped>
+/deep/ .el-alert__title {
+    font-size: 20px;
+    line-height: 28px;
+}
+
+/deep/ .el-alert__icon {
+    font-size: 20px;
+    width: 20px;
+}
+
+/deep/ .el-alert__closebtn {
+    font-size: 20px;
+}
+
 .main {
     display: flex;
     width: 100%;
@@ -122,16 +136,13 @@ activated() {
         display: flex;
         justify-content: flex-end;
         flex: 20%;
-        nav {
-            
-        }
     }
 
     .main-center {
         position: relative;
         flex: 50%;
         margin: 10px 0;
-        padding: 0 10px;
+        padding: 0 50px;
 
         .login-success {
             position: absolute;
@@ -143,7 +154,7 @@ activated() {
 
         .comment-input-container {
             width: 100%;
-            height: 400px;
+            height: 250px;
             border: 1px solid black;
         }
     }

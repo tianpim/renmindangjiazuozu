@@ -137,6 +137,20 @@ activated() {
 }
 </script>
 <style lang='less' scoped>
+    /deep/ .el-alert__title {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    /deep/ .el-alert__icon {
+        font-size: 20px;
+        width: 20px;
+    }
+
+    /deep/ .el-alert__closebtn {
+        font-size: 20px;
+    }
+
     .container {
         position: relative;
         display: flex;
