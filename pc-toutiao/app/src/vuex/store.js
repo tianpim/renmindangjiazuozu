@@ -11,10 +11,12 @@ let state = {
 /* 变动 */
 const mutations = {
     modifyLoginInfo: function(state ,{params}) {
+        localStorage["userInfo"] = JSON.stringify(params);
         this.state.userInfo = params;
         this.state.loginStatus = true;
     },
     exitLogin: function(state) {
+        localStorage["userInfo"] = "";
         this.state.userInfo = "";
         this.state.loginStatus = false;
     }

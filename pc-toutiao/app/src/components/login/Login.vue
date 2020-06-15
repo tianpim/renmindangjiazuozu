@@ -79,7 +79,10 @@ created() {
 },
 //生命周期 - 挂载完成（可以访问DOM元素）
 mounted() {
-
+    if(localStorage["userInfo"]) {
+        this.$store.state.userInfo = JSON.parse(localStorage["userInfo"]);
+        this.$store.state.loginStatus = true;
+    }
 },
 //生命周期 - 创建之前
 beforeCreate() {
