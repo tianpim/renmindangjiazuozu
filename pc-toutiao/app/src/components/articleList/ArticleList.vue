@@ -190,6 +190,7 @@ activated() {
                 border-bottom: 1px solid #e8e8e8;
                 overflow: hidden;
                 transition: all ease-in-out .3s;
+                max-height: 150px;
                 cursor: pointer;
 
                 &:hover {

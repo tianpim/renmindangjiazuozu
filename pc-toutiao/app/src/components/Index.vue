@@ -82,34 +82,32 @@ methods: {
         } ,3000)
     },
     scrollToBottom: function() {
-        window.addEventListener("scroll" ,() => {
-            let webTotalHeight = document.body.scrollHeight;
-            let clientHeight = document.documentElement.clientHeight;
-            if(document.documentElement.scrollTop == webTotalHeight - clientHeight && this.flag) {
-                this.flag = false;
-                this.$message({
-                    type: "success",
-                    message: "请求成功"
+        let webTotalHeight = document.body.scrollHeight;
+        let clientHeight = document.documentElement.clientHeight;
+        if(document.documentElement.scrollTop == webTotalHeight - clientHeight && this.flag) {
+            this.flag = false;
+            this.$message({
+                type: "success",
+                message: "请求成功"
+            })
+            this.axios({
+                method: 'POST',
+                url: "/getArticles",
+                data: {
+                    type: "TT",
+                    page: this.currentPage++,
+                    number: 20
+                }
+            }).then(res => {
+                this.$store.commit({
+                    type: "appendArticle",
+                    arr: res.data.articles
                 })
-                this.axios({
-                    method: 'POST',
-                    url: "/getArticles",
-                    data: {
-                        type: "TT",
-                        page: this.currentPage++,
-                        number: 20
-                    }
-                }).then(res => {
-                    this.$store.commit({
-                        type: "appendArticle",
-                        arr: res.data.articles
-                    })
-                })
-                setTimeout(() => {
-                    this.flag = true;
-                } ,3000)
-            }
-        })
+            })
+            setTimeout(() => {
+                this.flag = true;
+            } ,3000)
+        }
     }
 },
 //生命周期 - 创建完成（可以访问当前this实例）
@@ -121,7 +119,7 @@ mounted() {
     if(this.$store.state.loginStatus){
         this.loginSuccess();
     }
-    this.scrollToBottom();
+    window.addEventListener("scroll" ,this.scrollToBottom);
 },
 //生命周期 - 创建之前
 beforeCreate() {
@@ -145,7 +143,7 @@ beforeDestroy() {
 },
 //生命周期 - 销毁完成
 destroyed() {
-
+    window.removeEventListener("scroll" ,this.scrollToBottom);
 },
 //如果页面有keep-alive缓存功能，这个函数会触发
 activated() {
