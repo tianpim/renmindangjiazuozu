@@ -61,7 +61,8 @@ data: function() {
 //这里存放数据
     return {
         loginSuccessTips: false,
-        flag: true
+        flag: true,
+        currentPage: 1
     };
 },
 //监听属性 类似于data概念
@@ -81,19 +82,32 @@ methods: {
         } ,3000)
     },
     scrollToBottom: function() {
-        let webTotalHeight = document.body.scrollHeight;
-        let clientHeight = document.documentElement.clientHeight;
         window.addEventListener("scroll" ,() => {
-            console.log(webTotalHeight)
-            if(document.documentElement.scrollTop == webTotalHeight - clientHeight) {
-                // this.flag = false;
+            let webTotalHeight = document.body.scrollHeight;
+            let clientHeight = document.documentElement.clientHeight;
+            if(document.documentElement.scrollTop == webTotalHeight - clientHeight && this.flag) {
+                this.flag = false;
                 this.$message({
-                    type: "warning",
-                    message: "底部"
+                    type: "success",
+                    message: "请求成功"
                 })
-                // setTimeout(() => {
-                //     this.flag = true;
-                // } ,3000)
+                this.axios({
+                    method: 'POST',
+                    url: "/getArticles",
+                    data: {
+                        type: "TT",
+                        page: this.currentPage++,
+                        number: 20
+                    }
+                }).then(res => {
+                    this.$store.commit({
+                        type: "appendArticle",
+                        arr: res.data.articles
+                    })
+                })
+                setTimeout(() => {
+                    this.flag = true;
+                } ,3000)
             }
         })
     }
@@ -107,7 +121,6 @@ mounted() {
     if(this.$store.state.loginStatus){
         this.loginSuccess();
     }
-
     this.scrollToBottom();
 },
 //生命周期 - 创建之前

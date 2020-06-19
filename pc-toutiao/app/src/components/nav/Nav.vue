@@ -138,7 +138,7 @@ activated() {
         }
         ul {
             width: 100%;
-            height: 100%;
+            height: auto;
             li {
                 margin: 5px 0;
                 height: 40px;
